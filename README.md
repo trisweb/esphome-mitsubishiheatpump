@@ -314,6 +314,12 @@ sensor:
         - lambda: 'id(hp).set_remote_temperature(x);'
 ```
 
+Note that the temperature is expected in Celsius. If you have a Fahrenheit temperature, you can convert it in the lambda like so:
+
+```
+    - lambda: "id(hp).set_remote_temperature((x - 32.0) * (5.0/9.0));"
+```
+
 Alternatively you could define a
 [service](https://www.esphome.io/components/api.html#user-defined-services)
 that HomeAssistant can call:
